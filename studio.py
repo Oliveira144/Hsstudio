@@ -38,8 +38,8 @@ PATTERNS = {
         "normal_bet": "Apostar vermelho na próxima rodada",
         "manipulation_bet": {
             "1-3": "Seguir vermelho",
-            "4-5": "Ficar atento à quebra",
-            "6-9": "Esperar confirmação antes de apostar"
+            "4-6": "Ficar atento à quebra",
+            "7-9": "Esperar confirmação antes de apostar"
         }
     },
     2: {
@@ -49,8 +49,8 @@ PATTERNS = {
         "normal_bet": "Apostar azul",
         "manipulation_bet": {
             "1-3": "Seguir azul",
-            "4-5": "Ficar atento à quebra",
-            "6-9": "Esperar confirmação antes de apostar"
+            "4-6": "Ficar atento à quebra",
+            "7-9": "Esperar confirmação antes de apostar"
         }
     },
     3: {
@@ -60,8 +60,8 @@ PATTERNS = {
         "normal_bet": "Apostar na sequência da alternância",
         "manipulation_bet": {
             "1-3": "Seguir alternância",
-            "4-5": "Cuidado com empates",
-            "6-9": "Apostar só quando padrão completo aparecer duas vezes"
+            "4-6": "Cuidado com empates",
+            "7-9": "Apostar só quando padrão completo aparecer duas vezes"
         }
     },
     4: {
@@ -93,15 +93,15 @@ PATTERNS = {
 def add_result(result):
     st.session_state.history.insert(0, result)
     update_stats()
-    analyze_patterns()
     determine_layer()
+    analyze_patterns()
 
 def undo_last():
     if st.session_state.history:
         st.session_state.history.pop(0)
         update_stats()
-        analyze_patterns()
         determine_layer()
+        analyze_patterns()
 
 def clear_history():
     st.session_state.history = []
@@ -119,36 +119,30 @@ def update_stats():
     st.session_state.stats = stats
 
 def determine_layer():
-    # Determina a camada com base no histórico
     history_len = len(st.session_state.history)
-    if history_len < 10:
+    if history_len < 15:  # Ajuste nos limites para refletir as camadas
         st.session_state.current_layer = 1
-    elif history_len < 20:
+    elif history_len < 30:
         st.session_state.current_layer = 4
     else:
         st.session_state.current_layer = 7
 
 def detect_pattern(history):
-    # Esta função detectaria os padrões no histórico
-    # Implementação simplificada para exemplo
     if len(history) < 3:
         return None
     
     # Verifica padrão 1: Repetição Simples Vermelha
-    if len(history) >= 3 and all(r == 'casa' for r in history[:3]):
+    if history[0] == 'casa' and history[1] == 'casa' and history[2] == 'casa':
         return 1
     
     # Verifica padrão 2: Repetição Simples Azul
-    if len(history) >= 3 and all(r == 'visitante' for r in history[:3]):
+    if history[0] == 'visitante' and history[1] == 'visitante' and history[2] == 'visitante':
         return 2
     
     # Verifica padrão 3: Alternância Simples
     if len(history) >= 4:
-        if (history[0] == 'casa' and history[1] == 'visitante' and 
-            history[2] == 'casa' and history[3] == 'visitante'):
+        if history[0] != history[1] and history[1] != history[2] and history[2] != history[3]:
             return 3
-    
-    # Adicione verificações para outros padrões aqui
     
     return None
 
@@ -156,20 +150,20 @@ def analyze_patterns():
     history = st.session_state.history
     if len(history) < 3:
         st.session_state.analysis = {'pattern': 'Dados insuficientes', 'confidence': 0}
-        st.session_state.suggestion = {'bet': 'casa', 'reason': 'Aguarde mais resultados', 'confidence': 'baixa'}
+        st.session_state.suggestion = {'bet': 'Aguarde', 'reason': 'Aguarde mais resultados', 'confidence': 'baixa'}
         st.session_state.manipulation_alerts = []
         st.session_state.current_pattern = None
         return
     
-    # Detectar padrões
     pattern_id = detect_pattern(history)
     
     if pattern_id:
         pattern = PATTERNS[pattern_id]
         st.session_state.current_pattern = pattern_id
         
-        # Determinar sugestão baseada na camada
         layer = st.session_state.current_layer
+        
+        # Determinar a chave da camada para buscar o conselho de manipulação
         if layer <= 3:
             manipulation_key = "1-3"
         elif layer <= 6:
@@ -186,7 +180,7 @@ def analyze_patterns():
             'formation': pattern["formation"]
         }
         
-        # Determinar la aposta sugerida
+        # CORREÇÃO AQUI: Determinar aposta com base no padrão e na lógica de apostas
         if pattern_id == 1:
             bet = 'casa'
         elif pattern_id == 2:
@@ -198,7 +192,7 @@ def analyze_patterns():
             bet = 'casa'  # Padrão padrão
         
         st.session_state.suggestion = {
-            'bet': bet,
+            'bet': bet, # Aposta baseada na lógica do padrão
             'reason': f"{pattern['name']}. {manipulation_advice}",
             'confidence': 'alta' if layer <= 3 else 'média' if layer <= 6 else 'baixa'
         }
@@ -224,7 +218,7 @@ def analyze_patterns():
             }
         st.session_state.current_pattern = None
 
-# Estilos CSS personalizados
+# Estilos CSS personalizados (sem alterações)
 st.markdown("""
 <style>
     .main {
@@ -303,7 +297,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Layout principal do aplicativo
+# Layout principal do aplicativo (sem alterações)
 st.markdown('<div class="main">', unsafe_allow_html=True)
 
 # Cabeçalho
