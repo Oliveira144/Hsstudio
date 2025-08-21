@@ -487,13 +487,18 @@ if st.session_state.history:
         <div style="display: flex; flex-wrap: wrap; gap: 0.25rem;">
     """, unsafe_allow_html=True)
     
+    # Construa a string HTML completa antes de renderizar
+    history_html = ""
     for result in st.session_state.history:
         if result == 'casa':
-            st.markdown('<span class="result-badge casa-badge">C</span>', unsafe_allow_html=True)
+            history_html += '<span class="result-badge casa-badge">C</span>'
         elif result == 'visitante':
-            st.markdown('<span class="result-badge visitante-badge">V</span>', unsafe_allow_html=True)
+            history_html += '<span class="result-badge visitante-badge">V</span>'
         else:
-            st.markdown('<span class="result-badge empate-badge">E</span>', unsafe_allow_html=True)
+            history_html += '<span class="result-badge empate-badge">E</span>'
+    
+    # Renderize a string HTML completa de uma só vez
+    st.markdown(history_html, unsafe_allow_html=True)
     
     st.markdown("""
         </div>
