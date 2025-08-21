@@ -12,8 +12,6 @@ st.set_page_config(
 )
 
 # Inicialização do estado da sessão
-if 'show_warning' not in st.session_state:
-    st.session_state.show_warning = True
 if 'history' not in st.session_state:
     st.session_state.history = []
 if 'stats' not in st.session_state:
@@ -30,8 +28,6 @@ if 'current_pattern' not in st.session_state:
     st.session_state.current_pattern = None
 if 'current_layer' not in st.session_state:
     st.session_state.current_layer = 1
-if 'accepted_terms' not in st.session_state:
-    st.session_state.accepted_terms = False
 
 # Dicionário de padrões (1-40)
 PATTERNS = {
@@ -68,7 +64,6 @@ PATTERNS = {
             "6-9": "Apostar só quando padrão completo aparecer duas vezes"
         }
     },
-    # Padrões 4-40 seriam adicionados aqui seguindo a mesma estrutura
     4: {
         "name": "Empate como âncora",
         "description": "Empate aparece entre duas cores",
@@ -84,7 +79,7 @@ PATTERNS = {
         "name": "Repetição + Alternância",
         "description": "Dupla repetida seguida de alternância",
         "formation": "🔴 🔴 🔵 🔵",
-        "normal_bet": "Apostar na próxima cor seguindo a alternância",
+        "normal_bet": "Apostar na próxima cor seguindo la alternância",
         "manipulation_bet": {
             "1-3": "Padrão previsível",
             "4-6": "Apostar após confirmar dois ciclos",
@@ -191,7 +186,7 @@ def analyze_patterns():
             'formation': pattern["formation"]
         }
         
-        # Determinar a aposta sugerida
+        # Determinar la aposta sugerida
         if pattern_id == 1:
             bet = 'casa'
         elif pattern_id == 2:
@@ -228,11 +223,6 @@ def analyze_patterns():
                 'confidence': 'baixa'
             }
         st.session_state.current_pattern = None
-
-def accept_terms():
-    st.session_state.accepted_terms = True
-    st.session_state.show_warning = False
-    st.rerun()
 
 # Estilos CSS personalizados
 st.markdown("""
@@ -294,26 +284,6 @@ st.markdown("""
     .low-confidence {
         color: #dc2626;
     }
-    .warning-modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-    }
-    .warning-content {
-        background-color: white;
-        border-radius: 1rem;
-        max-width: 32rem;
-        width: 90%;
-        padding: 1.5rem;
-        margin: 1rem;
-    }
     .pattern-card {
         background-color: rgba(255, 255, 255, 0.15);
         border-radius: 0.5rem;
@@ -333,64 +303,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Modal de aviso
-if st.session_state.show_warning:
-    st.markdown("""
-    <div class="warning-modal">
-        <div class="warning-content">
-            <div style="text-align: center; margin-bottom: 1.5rem;">
-                <div style="background-color: #fecaca; border-radius: 9999px; width: 4rem; height: 4rem; 
-                            display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
-                    <span style="color: #dc2626; font-weight: bold; font-size: 1.5rem;">!</span>
-                </div>
-                <h2 style="color: #1f2937; font-weight: bold; font-size: 1.5rem; margin-bottom: 0.5rem;">
-                    AVISO IMPORTANTE
-                </h2>
-            </div>
-            
-            <div style="color: #374151; margin-bottom: 1.5rem;">
-                <p style="font-weight: bold; text-align: center; margin-bottom: 1rem;">
-                    Este aplicativo é exclusivo e de uso restrito do grupo <span style="color: #dc2626;">HS-Studio</span>
-                </p>
-                
-                <p style="margin-bottom: 1rem;">
-                    É terminantemente proibida a divulgação, compartilhamento ou disponibilização do link do app a terceiros sem autorização expressa do administrador.
-                </p>
-                
-                <p style="margin-bottom: 1rem;">
-                    O descumprimento destas regras poderá resultar no <span style="font-weight: bold; color: #dc2626;">bloqueio imediato do acesso</span> e na <span style="font-weight: bold; color: #dc2626;">remoção definitiva do link</span>.
-                </p>
-                
-                <div style="background-color: #fffbeb; border: 1px solid #fcd34d; border-radius: 0.5rem; padding: 0.75rem; margin: 1rem 0;">
-                    <h3 style="color: #92400e; font-weight: bold; margin-bottom: 0.5rem; display: flex; align-items: center;">
-                        <span style="margin-right: 0.5rem;">⚠️</span> Observações Importantes:
-                    </h3>
-                    <ul style="font-size: 0.875rem; color: #92400e; padding-left: 1.5rem; margin: 0;">
-                        <li>O app é uma ferramenta de auxílio na tomada de decisão, não sendo garantia de ganhos de 100%.</li>
-                        <li>O uso é restrito a maiores de 18 anos.</li>
-                        <li>O jogo deve ser praticado de forma consciente e responsável.</li>
-                    </ul>
-                </div>
-                
-                <div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 0.5rem; padding: 0.75rem;">
-                    <p style="font-size: 0.875rem; color: #166534; margin: 0;">
-                        <strong>Ao continuar</strong>, você declara estar ciente e de acordo com estas condições.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Botão para aceitar os termos - usando columns para centralizar
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        if st.button("Aceito os Termos - Continuar", key="accept_terms", use_container_width=True):
-            accept_terms()
-    
-    st.stop()
-
-# Layout principal do aplicativo (após aceitar os termos)
+# Layout principal do aplicativo
 st.markdown('<div class="main">', unsafe_allow_html=True)
 
 # Cabeçalho
