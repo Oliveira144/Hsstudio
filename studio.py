@@ -131,7 +131,7 @@ def detect_pattern(history):
     if len(history) < 3:
         return None
     
-    # Verifica padrão 1: Repetição Simples Vermelha (ajustado para ser mais robusto)
+    # Verifica padrão 1: Repetição Simples Vermelha
     if len(history) >= 3 and history[0] == 'casa' and history[1] == 'casa' and history[2] == 'casa':
         return 1
     
@@ -139,7 +139,7 @@ def detect_pattern(history):
     if len(history) >= 3 and history[0] == 'visitante' and history[1] == 'visitante' and history[2] == 'visitante':
         return 2
     
-    # Verifica padrão 3: Alternância Simples (ajustado para ser mais robusto)
+    # Verifica padrão 3: Alternância Simples
     if len(history) >= 4 and history[0] != history[1] and history[1] != history[2] and history[2] != history[3] and history[0] != history[2]:
         return 3
     
@@ -186,7 +186,6 @@ def analyze_patterns():
             'formation': pattern["formation"]
         }
         
-        # Lógica corrigida para determinar a aposta com base no padrão
         bet = 'Aguarde'
         if pattern_id == 1:
             bet = 'casa'
@@ -226,7 +225,7 @@ def analyze_patterns():
         }
         st.session_state.current_pattern = None
 
-# Estilos CSS personalizados (sem alterações)
+# Estilos CSS personalizados
 st.markdown("""
 <style>
     .main {
@@ -480,27 +479,24 @@ with st.container():
     </div>
     """, unsafe_allow_html=True)
 
-# Histórico de resultados - SEÇÃO CORRIGIDA
+# SEÇÃO DE HISTÓRICO CORRIGIDA PARA EXIBIÇÃO HORIZONTAL
 if st.session_state.history:
     st.markdown("""
     <div class="card">
         <h3 style="color: white; margin-bottom: 0.75rem;">📋 Histórico de Resultados</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.25rem;">
     """, unsafe_allow_html=True)
     
-    # Criar colunas para quebra de linha
-    cols = st.columns(10)
-    
-    for i, result in enumerate(st.session_state.history):
-        col_index = i % 10
-        with cols[col_index]:
-            if result == 'casa':
-                st.markdown('<span class="result-badge casa-badge">C</span>', unsafe_allow_html=True)
-            elif result == 'visitante':
-                st.markdown('<span class="result-badge visitante-badge">V</span>', unsafe_allow_html=True)
-            else:
-                st.markdown('<span class="result-badge empate-badge">E</span>', unsafe_allow_html=True)
+    for result in st.session_state.history:
+        if result == 'casa':
+            st.markdown('<span class="result-badge casa-badge">C</span>', unsafe_allow_html=True)
+        elif result == 'visitante':
+            st.markdown('<span class="result-badge visitante-badge">V</span>', unsafe_allow_html=True)
+        else:
+            st.markdown('<span class="result-badge empate-badge">E</span>', unsafe_allow_html=True)
     
     st.markdown("""
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
