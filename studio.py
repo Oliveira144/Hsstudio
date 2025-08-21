@@ -79,14 +79,398 @@ PATTERNS = {
         "name": "Repetição + Alternância",
         "description": "Dupla repetida seguida de alternância",
         "formation": "🔴 🔴 🔵 🔵",
-        "normal_bet": "Apostar na próxima cor seguindo la alternância",
+        "normal_bet": "Apostar na próxima cor seguindo a alternância",
         "manipulation_bet": {
             "1-3": "Padrão previsível",
             "4-6": "Apostar após confirmar dois ciclos",
             "7-9": "Só apostar se ciclo completo se repetir"
         }
     },
-    # Adicione os outros padrões seguindo a mesma estrutura
+    6: {
+        "name": "Tripla Alternada",
+        "description": "Alternância de três blocos",
+        "formation": "🔴 🔵 🔴 🔵 🔴",
+        "normal_bet": "Apostar na próxima cor seguindo o ciclo",
+        "manipulation_bet": {
+            "1-3": "Apostar conforme padrão",
+            "4-6": "Confirmar inversão antes de apostar",
+            "7-9": "Aguardar padrão duplo para segurança"
+        }
+    },
+    7: {
+        "name": "Empate no meio",
+        "description": "Empate ocorre no meio de sequência",
+        "formation": "🔴 🔵 🟡 🔴",
+        "normal_bet": "Apostar na cor que veio antes do empate",
+        "manipulation_bet": {
+            "1-3": "Seguir tendência simples",
+            "4-6": "Esperar ver se a cor dominante retorna",
+            "7-9": "Só apostar após padrão se repetir"
+        }
+    },
+    8: {
+        "name": "Padrão Zig-Zag",
+        "description": "Alternância irregular",
+        "formation": "🔴 🔵 🔵 🔴 🔵",
+        "normal_bet": "Apostar seguindo zig-zag",
+        "manipulation_bet": {
+            "1-3": "Aposta direta",
+            "4-6": "Aguardar confirmação de duas sequências",
+            "7-9": "Só apostar se ciclo longo se repetir"
+        }
+    },
+    9: {
+        "name": "Quebra de repetição",
+        "description": "Cor diferente quebra repetição",
+        "formation": "🔴 🔴 🔵",
+        "normal_bet": "Apostar na cor que rompeu a repetição",
+        "manipulation_bet": {
+            "1-3": "Apostar na cor nova",
+            "4-6": "Esperar nova confirmação",
+            "7-9": "Aguardar dois ciclos da cor nova"
+        }
+    },
+    10: {
+        "name": "Quebra dupla",
+        "description": "Duas cores repetidas e depois troca",
+        "formation": "🔴 🔵 🔵 🔴 🔴 🔵",
+        "normal_bet": "Apostar na cor que rompeu sequência dupla",
+        "manipulation_bet": {
+            "1-3": "Seguir sequência",
+            "4-6": "Confirmar ciclo",
+            "7-9": "Esperar padrão completo antes de apostar"
+        }
+    },
+    11: {
+        "name": "Empate repetido",
+        "description": "Dois empates seguidos",
+        "formation": "🟡 🟡 🔴",
+        "normal_bet": "Apostar na cor que vem após os empates",
+        "manipulation_bet": {
+            "1-3": "Apostar imediatamente na cor que rompeu",
+            "4-6": "Esperar padrão se repetir",
+            "7-9": "Aguardar confirmação de dois ciclos"
+        }
+    },
+    12: {
+        "name": "Tripla alternada invertida",
+        "description": "Alternância de 6 resultados invertida",
+        "formation": "🔵 🔴 🔵 🔴 🔵 🔴",
+        "normal_bet": "Apostar seguindo alternância",
+        "manipulation_bet": {
+            "1-3": "Apostar na sequência",
+            "4-6": "Esperar inversão se confirmar",
+            "7-9": "Só apostar após padrão completo se repetir"
+        }
+    },
+    13: {
+        "name": "Sequência crescente",
+        "description": "Pares de cores repetidos e alternados",
+        "formation": "🔴 🔴 🔵 🔵 🔴 🔴 🔵",
+        "normal_bet": "Apostar seguindo próximo par",
+        "manipulation_bet": {
+            "1-3": "Seguir o próximo par",
+            "4-6": "Confirmar ciclo",
+            "7-9": "Só apostar se ciclo duplo se repetir"
+        }
+    },
+    14: {
+        "name": "Sequência decrescente",
+        "description": "Sequência alternada terminando em cor repetida",
+        "formation": "🔵 🔴 🔵 🔴 🔵 🔴 🔴",
+        "normal_bet": "Apostar na cor que rompe a repetição",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Esperar confirmação",
+            "7-9": "Aguardar dois ciclos completos"
+        }
+    },
+    15: {
+        "name": "Alternância com empate",
+        "description": "Empates entre alternâncias",
+        "formation": "🔴 🟡 🔵 🟡 🔴",
+        "normal_bet": "Apostar na cor anterior ao empate",
+        "manipulation_bet": {
+            "1-3": "Seguir cor anterior",
+            "4-6": "Esperar padrão se repetir",
+            "7-9": "Apostar somente após confirmação de ciclo"
+        }
+    },
+    16: {
+        "name": "Ciclo triplo",
+        "description": "Ciclos de três cores repetidos",
+        "formation": "🔴 🔵 🔵 🔴 🔵 🔵",
+        "normal_bet": "Apostar na cor que completa o ciclo",
+        "manipulation_bet": {
+            "1-3": "Apostar conforme ciclo",
+            "4-6": "Esperar repetição dupla",
+            "7-9": "Só apostar após dois ciclos completos"
+        }
+    },
+    17: {
+        "name": "Sequência complexa",
+        "description": "Alternância irregular com dominância de cor",
+        "formation": "🔴 🔵 🔴 🔵 🔵 🔴 🔵",
+        "normal_bet": "Apostar na cor dominante",
+        "manipulation_bet": {
+            "1-3": "Seguir dominância",
+            "4-6": "Aguardar confirmação",
+            "7-9": "Esperar padrão se repetir duas vezes"
+        }
+    },
+    18: {
+        "name": "Empate entre cores",
+        "description": "Empate separando duas cores",
+        "formation": "🔵 🟡 🔴",
+        "normal_bet": "Apostar na cor que rompe o empate",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Esperar confirmação",
+            "7-9": "Só apostar após dois ciclos completos"
+        }
+    },
+    19: {
+        "name": "Padrão 'goleada'",
+        "description": "Três repetições de uma cor seguidas por duas da outra",
+        "formation": "🔴 🔴 🔴 🔵 🔵",
+        "normal_bet": "Apostar na cor da sequência dupla",
+        "manipulation_bet": {
+            "1-3": "Seguir a dupla",
+            "4-6": "Confirmar ciclo",
+            "7-9": "Esperar repetição do padrão completo"
+        }
+    },
+    20: {
+        "name": "Alternância com repetição dupla",
+        "description": "Duas alternâncias consecutivas",
+        "formation": "🔴 🔵 🔵 🔴 🔵 🔵",
+        "normal_bet": "Apostar seguindo o ciclo da segunda dupla",
+        "manipulation_bet": {
+            "1-3": "Apostar diretamente",
+            "4-6": "Aguardar confirmação da segunda dupla",
+            "7-9": "Só apostar após padrão duplo"
+        }
+    },
+    21: {
+        "name": "Tripla repetida com alternância",
+        "description": "Três da mesma cor seguidas por alternância",
+        "formation": "🔴 🔴 🔴 🔵 🔵 🔴",
+        "normal_bet": "Apostar seguindo a alternância",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Confirmar ciclo",
+            "7-9": "Esperar repetição"
+        }
+    },
+    22: {
+        "name": "Dupla invertida",
+        "description": "Dupla de cores invertidas no meio da sequência",
+        "formation": "🔵 🔵 🔴 🔴 🔵",
+        "normal_bet": "Apostar na cor que fecha a inversão",
+        "manipulation_bet": {
+            "1-3": "Apostar diretamente",
+            "4-6": "Aguardar confirmação",
+            "7-9": "Só após repetição"
+        }
+    },
+    23: {
+        "name": "Empate entre duplas",
+        "description": "Empate separando duplas de cores",
+        "formation": "🔴 🔴 🟡 🔵 🔵",
+        "normal_bet": "Apostar na cor que segue após empate",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Esperar confirmação",
+            "7-9": "Esperar dois ciclos completos"
+        }
+    },
+    24: {
+        "name": "Sequência zig-zag longa",
+        "description": "Alternância de várias cores sem repetição direta",
+        "formation": "🔴 🔵 🔴 🔵 🔴 🔵 🔴",
+        "normal_bet": "Apostar seguindo zig-zag",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Aguardar repetição parcial",
+            "7-9": "Só apostar após ciclo completo"
+        }
+    },
+    25: {
+        "name": "Padrão 'correr e parar'",
+        "description": "Repetições curtas seguidas por mudança",
+        "formation": "🔵 🔵 🔴 🔴 🔴",
+        "normal_bet": "Apostar na cor que interrompe a repetição longa",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Esperar confirmação",
+            "7-9": "Aguardar repetição do padrão"
+        }
+    },
+    26: {
+        "name": "Alternância tripla com empate",
+        "description": "Alternância de três cores com empate no meio",
+        "formation": "🔴 🔵 🔵 🟡 🔴 🔵",
+        "normal_bet": "Apostar na cor dominante antes do empate",
+        "manipulation_bet": {
+            "1-3": "Seguir direto",
+            "4-6": "Aguardar confirmação",
+            "7-9": "Só apostar após ciclo completo"
+        }
+    },
+    27: {
+        "name": "Repetição quádrupla",
+        "description": "Quatro da mesma cor seguidos por outra cor",
+        "formation": "🔴 🔴 🔴 🔴 🔵",
+        "normal_bet": "Apostar na nova cor",
+        "manipulation_bet": {
+            "1-3": "Apostar na cor que rompe",
+            "4-6": "Confirmar padrão",
+            "7-9": "Esperar repetição do padrão"
+        }
+    },
+    28: {
+        "name": "Quebra dupla com empate",
+        "description": "Duas cores repetidas e empate",
+        "formation": "🔴 🔴 🟡 🔵 🔵",
+        "normal_bet": "Apostar na cor que rompe a dupla",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Confirmar padrão",
+            "7-9": "Esperar ciclo duplo"
+        }
+    },
+    29: {
+        "name": "Empate seguido de cor dominante",
+        "description": "Empate seguido por sequência de mesma cor",
+        "formation": "🟡 🔵 🔵 🔵",
+        "normal_bet": "Apostar na cor dominante",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Esperar confirmação",
+            "7-9": "Aguardar dois ciclos"
+        }
+    },
+    30: {
+        "name": "Sequência inversa",
+        "description": "Padrão invertido de alternância",
+        "formation": "🔴 🔵 🔵 🔴 🔴 🔵 🔴",
+        "normal_bet": "Apostar na cor dominante",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Confirmar ciclo",
+            "7-9": "Aguardar repetição do padrão"
+        }
+    },
+    31: {
+        "name": "Padrão contínuo de 5",
+        "description": "Cinco resultados consecutivos com cores alternadas ou repetidas",
+        "formation": "🔵 🔵 🔴 🔴 🔵",
+        "normal_bet": "Apostar na cor que completa a sequência de 5",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Esperar confirmação da última cor",
+            "7-9": "Só apostar após repetição do ciclo completo"
+        }
+    },
+    32: {
+        "name": "Tripla alternada com inversão",
+        "description": "Alternância de três blocos repetidos invertidos",
+        "formation": "🔴 🔵 🔴 🔵 🔴 🔵 🔴",
+        "normal_bet": "Apostar na cor que mantém a alternância",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Confirmar padrão antes de apostar",
+            "7-9": "Aguardar repetição completa do ciclo"
+        }
+    },
+    33: {
+        "name": "Empate interrompendo ciclo",
+        "description": "Empate aparece no meio de uma sequência",
+        "formation": "🔵 🔵 🟡 🔴 🔴",
+        "normal_bet": "Apostar na cor que retoma o ciclo",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Aguardar confirmação da retomada",
+            "7-9": "Só apostar após dois ciclos completos"
+        }
+    },
+    34: {
+        "name": "Padrão 'ancorado' no empate",
+        "description": "Empate usado como reset de padrão",
+        "formation": "🟡 🔴 🔵 🔴 🔵",
+        "normal_bet": "Apostar na cor dominante antes do empate",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Confirmar sequência",
+            "7-9": "Esperar ciclo duplo para segurança"
+        }
+    },
+    35: {
+        "name": "Ciclo longo de alternância dupla",
+        "description": "Alternância de pares de cores por 8 resultados",
+        "formation": "🔴 🔵 🔵 🔴 🔵 🔵 🔴 🔵",
+        "normal_bet": "Apostar seguindo o próximo par do ciclo",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Esperar confirmação parcial",
+            "7-9": "Só apostar após ciclo completo"
+        }
+    },
+    36: {
+        "name": "Sequência dupla + tripla alternada",
+        "description": "Combinação de duas repetições e alternância tripla",
+        "formation": "🔵 🔵 🔴 🔵 🔴 🔵",
+        "normal_bet": "Apostar na cor que completa a alternância tripla",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Esperar confirmação do ciclo",
+            "7-9": "Aguardar repetição do padrão completo"
+        }
+    },
+    37: {
+        "name": "Repetição parcial com inversão",
+        "description": "Repetição de duas cores seguida por inversão",
+        "formation": "🔴 🔴 🔵 🔴 🔵",
+        "normal_bet": "Apostar na cor que completa a inversão",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Confirmar padrão antes de apostar",
+            "7-9": "Esperar repetição do ciclo completo"
+        }
+    },
+    38: {
+        "name": "Empate em sequência complexa",
+        "description": "Empate aparece em meio a padrão irregular",
+        "formation": "🔴 🔵 🟡 🔵 🔴",
+        "normal_bet": "Apostar na cor que domina após empate",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Confirmar sequência",
+            "7-9": "Só apostar após ciclo completo"
+        }
+    },
+    39: {
+        "name": "Dupla repetida + inversão",
+        "description": "Duas cores repetidas seguidas de inversão",
+        "formation": "🔴 🔴 🔵 🔵 🔴",
+        "normal_bet": "Apostar na cor que fecha a inversão",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Aguardar confirmação",
+            "7-9": "Só apostar após repetição do padrão"
+        }
+    },
+    40: {
+        "name": "Sequência final de quebra",
+        "description": "Três ou mais repetições seguidas por cor diferente",
+        "formation": "🔵 🔵 🔵 🔴 🔵",
+        "normal_bet": "Apostar na cor que rompe a sequência longa",
+        "manipulation_bet": {
+            "1-3": "Apostar direto",
+            "4-6": "Confirmar padrão",
+            "7-9": "Esperar repetição do padrão completo"
+        }
+    }
 }
 
 # Funções auxiliares
@@ -127,29 +511,142 @@ def determine_layer():
     else:
         st.session_state.current_layer = 7
 
+def get_bet_suggestion(pattern_id, history):
+    if pattern_id == 1:
+        return 'casa'
+    elif pattern_id == 2:
+        return 'visitante'
+    elif pattern_id == 3:
+        return 'visitante' if history[0] == 'casa' else 'casa'
+    elif pattern_id == 4:
+        return history[0] if history[0] != 'empate' else history[2]
+    elif pattern_id == 5:
+        return 'visitante' if history[0] == 'casa' else 'casa'
+    elif pattern_id == 6:
+        return history[1] if history[0] == history[2] else history[0]
+    elif pattern_id == 7:
+        return history[0]
+    elif pattern_id == 8:
+        return 'visitante' if history[0] == 'casa' else 'casa'
+    elif pattern_id == 9:
+        return history[0] if history[0] != history[1] else history[2]
+    elif pattern_id == 10:
+        return history[0] if history[0] != history[1] else history[2]
+    elif pattern_id == 11:
+        return history[0]
+    elif pattern_id == 12:
+        return history[0] if history[0] != history[1] else history[2]
+    elif pattern_id == 13:
+        return history[0] if history[0] != history[1] else history[2]
+    elif pattern_id == 14:
+        return history[0] if history[0] != history[1] else history[2]
+    elif pattern_id == 15:
+        return history[0] if history[0] != history[2] else history[1]
+    elif pattern_id == 16:
+        return history[0] if history[0] != history[1] else history[2]
+    elif pattern_id == 17:
+        return history[1] if history[0] == 'casa' and history[1] == 'visitante' else history[0]
+    elif pattern_id == 18:
+        return history[0] if history[0] != 'empate' else history[2]
+    elif pattern_id == 19:
+        return history[2] if history[0] == history[1] == history[2] else history[0]
+    elif pattern_id == 20:
+        return history[0] if history[0] == history[1] and history[2] == history[3] else history[2]
+    elif pattern_id == 21:
+        return history[0] if history[0] == history[1] and history[2] == history[3] and history[3] != history[4] else history[1]
+    elif pattern_id == 22:
+        return history[0] if history[0] == history[1] and history[2] == history[3] and history[3] != history[4] else history[1]
+    elif pattern_id == 23:
+        return history[0] if history[0] == history[1] and history[2] == 'empate' and history[3] == history[4] else history[2]
+    elif pattern_id == 24:
+        return history[0] if history[0] != history[1] and history[1] != history[2] else history[2]
+    elif pattern_id == 25:
+        return history[0] if history[0] == history[1] and history[2] == history[3] and history[3] == history[4] else history[2]
+    elif pattern_id == 26:
+        return history[0] if history[0] != 'empate' else history[1]
+    elif pattern_id == 27:
+        return history[0] if history[0] == history[1] and history[1] == history[2] and history[2] == history[3] else history[4]
+    elif pattern_id == 28:
+        return history[0] if history[0] == history[1] and history[2] == 'empate' else history[3]
+    elif pattern_id == 29:
+        return history[1] if history[0] == 'empate' else history[0]
+    elif pattern_id == 30:
+        return history[0] if history[0] == history[1] and history[2] == history[3] and history[3] != history[4] else history[2]
+    elif pattern_id == 31:
+        return history[0] if history[0] == history[1] and history[2] == history[3] and history[4] == history[5] else history[1]
+    elif pattern_id == 32:
+        return history[0] if history[0] != history[1] and history[1] != history[2] and history[2] != history[3] and history[3] != history[4] else history[1]
+    elif pattern_id == 33:
+        return history[0] if history[0] == history[1] and history[2] == 'empate' else history[3]
+    elif pattern_id == 34:
+        return history[1] if history[0] == 'empate' else history[0]
+    elif pattern_id == 35:
+        return history[0] if history[0] == history[1] and history[2] == history[3] and history[4] == history[5] and history[6] == history[7] else history[2]
+    elif pattern_id == 36:
+        return history[0] if history[0] == history[1] and history[2] == 'empate' else history[3]
+    elif pattern_id == 37:
+        return history[0] if history[0] == history[1] and history[2] != history[3] else history[2]
+    elif pattern_id == 38:
+        return history[0] if history[0] != history[1] and history[1] == 'empate' else history[2]
+    elif pattern_id == 39:
+        return history[0] if history[0] == history[1] and history[2] == history[3] and history[3] != history[4] else history[2]
+    elif pattern_id == 40:
+        return history[0] if history[0] == history[1] and history[1] == history[2] and history[2] != history[3] else history[3]
+    
+    return 'Aguarde' # Palpite padrão se não houver lógica específica
+
 def detect_pattern(history):
-    if len(history) < 3:
-        return None
+    history_tuple = tuple(history)
     
-    # Verifica padrão 1: Repetição Simples Vermelha
-    if len(history) >= 3 and history[0] == 'casa' and history[1] == 'casa' and history[2] == 'casa':
-        return 1
+    # Lógica de detecção para os 40 padrões
+    # Note: Adaptei a lógica com base nas formações e descrições fornecidas.
+    # Algumas lógicas podem precisar de ajuste fino.
     
-    # Verifica padrão 2: Repetição Simples Azul
-    if len(history) >= 3 and history[0] == 'visitante' and history[1] == 'visitante' and history[2] == 'visitante':
-        return 2
-    
-    # Verifica padrão 3: Alternância Simples
-    if len(history) >= 4 and history[0] != history[1] and history[1] != history[2] and history[2] != history[3] and history[0] != history[2]:
-        return 3
-    
-    # Verifica padrão 4: Empate como âncora
-    if len(history) >= 3 and history[1] == 'empate' and history[0] != 'empate' and history[2] != 'empate' and history[0] != history[2]:
-        return 4
-    
-    # Verifica padrão 5: Repetição + Alternância
-    if len(history) >= 4 and history[0] == history[1] and history[2] == history[3] and history[0] != history[2]:
-        return 5
+    if len(history) >= 3 and history[0] == 'casa' and history[1] == 'casa' and history[2] == 'casa': return 1
+    if len(history) >= 3 and history[0] == 'visitante' and history[1] == 'visitante' and history[2] == 'visitante': return 2
+    if len(history) >= 4 and history[0] != history[1] and history[1] != history[2] and history[2] != history[3] and history[0] != history[2]: return 3
+    if len(history) >= 3 and history[1] == 'empate' and history[0] != 'empate' and history[2] != 'empate' and history[0] != history[2]: return 4
+    if len(history) >= 4 and history[0] == history[1] and history[2] == history[3] and history[0] != history[2]: return 5
+    if len(history) >= 5 and history[0] != history[1] and history[1] != history[2] and history[2] != history[3] and history[3] != history[4] and history[0] == history[2] and history[2] == history[4]: return 6
+    if len(history) >= 4 and history[1] != history[2] and history[2] == 'empate': return 7
+    if len(history) >= 5 and history[0] != history[1] and history[1] == history[2] and history[2] != history[3] and history[3] != history[4]: return 8
+    if len(history) >= 3 and history[0] == history[1] and history[1] != history[2]: return 9
+    if len(history) >= 6 and history[0] == history[1] and history[1] != history[2] and history[2] == history[3] and history[3] != history[4] and history[4] == history[5]: return 10
+    if len(history) >= 3 and history[0] == 'empate' and history[1] == 'empate' and history[2] != 'empate': return 11
+    if len(history) >= 6 and history[0] != history[1] and history[1] != history[2] and history[2] != history[3] and history[3] != history[4] and history[4] != history[5]: return 12
+    if len(history) >= 7 and history[0] == history[1] and history[2] == history[3] and history[4] == history[5]: return 13
+    if len(history) >= 7 and history[0] != history[1] and history[1] != history[2] and history[2] != history[3] and history[3] != history[4] and history[4] != history[5] and history[5] == history[6]: return 14
+    if len(history) >= 5 and history[0] == history[2] and history[2] == history[4] and history[1] == 'empate' and history[3] == 'empate': return 15
+    if len(history) >= 6 and history[0] != history[1] and history[1] == history[2] and history[2] != history[3] and history[3] == history[4] and history[4] != history[5]: return 16
+    if len(history) >= 7 and history[0] != history[1] and history[1] != history[2] and history[2] != history[3] and history[3] == history[4] and history[4] != history[5] and history[5] == history[6]: return 17
+    if len(history) >= 3 and history[1] == 'empate': return 18
+    if len(history) >= 5 and history[0] == history[1] == history[2] and history[3] == history[4] and history[2] != history[3]: return 19
+    if len(history) >= 6 and history[0] != history[1] and history[1] == history[2] and history[2] != history[3] and history[3] == history[4] and history[4] != history[5]: return 20
+    if len(history) >= 6 and history[0] == history[1] == history[2] and history[3] != history[4] and history[4] != history[5]: return 21
+    if len(history) >= 5 and history[0] == history[1] and history[1] != history[2] and history[2] == history[3] and history[3] != history[4]: return 22
+    if len(history) >= 5 and history[0] == history[1] and history[2] == 'empate' and history[3] == history[4]: return 23
+    if len(history) >= 7 and history[0] != history[1] and history[1] != history[2] and history[2] != history[3] and history[3] != history[4] and history[4] != history[5] and history[5] != history[6]: return 24
+    if len(history) >= 5 and history[0] == history[1] and history[1] != history[2] and history[2] == history[3] == history[4]: return 25
+    if len(history) >= 6 and history[0] != history[1] and history[1] == history[2] and history[2] != history[3] and history[3] == 'empate': return 26
+    if len(history) >= 5 and history[0] == history[1] == history[2] == history[3] and history[3] != history[4]: return 27
+    if len(history) >= 5 and history[0] == history[1] and history[2] == 'empate' and history[3] == history[4] and history[0] != history[3]: return 28
+    if len(history) >= 4 and history[0] == 'empate' and history[1] == history[2] == history[3]: return 29
+    if len(history) >= 7 and history[0] != history[1] and history[1] == history[2] and history[2] != history[3] and history[3] == history[4] and history[4] != history[5] and history[5] == history[6]: return 30
+    if len(history) >= 5:
+        sub_history = history[:5]
+        is_alternating = sub_history[0] != sub_history[1] and sub_history[1] != sub_history[2] and sub_history[2] != sub_history[3] and sub_history[3] != sub_history[4]
+        is_repeating = sub_history[0] == sub_history[1] and sub_history[2] == sub_history[3] and sub_history[3] != sub_history[4]
+        if is_alternating or is_repeating:
+            return 31
+    if len(history) >= 7 and history[0] != history[1] and history[1] == history[2] and history[2] != history[3] and history[3] == history[4] and history[4] != history[5] and history[5] == history[6]: return 32
+    if len(history) >= 5 and history[0] == history[1] and history[2] == 'empate' and history[3] == history[4] and history[0] != history[3]: return 33
+    if len(history) >= 5 and history[0] == 'empate' and history[1] != history[2] and history[2] != history[3] and history[3] != history[4]: return 34
+    if len(history) >= 8 and history[0] == history[1] and history[2] == history[3] and history[4] == history[5] and history[6] == history[7]: return 35
+    if len(history) >= 6 and history[0] == history[1] and history[1] != history[2] and history[2] == history[3] and history[3] != history[4] and history[4] == history[5]: return 36
+    if len(history) >= 5 and history[0] == history[1] and history[1] != history[2] and history[2] == history[3] and history[3] != history[4]: return 37
+    if len(history) >= 5 and history[1] == 'empate' and history[0] != history[2] and history[2] != history[3] and history[3] != history[4]: return 38
+    if len(history) >= 5 and history[0] == history[1] and history[2] == history[3] and history[3] != history[4]: return 39
+    if len(history) >= 4 and history[0] == history[1] == history[2] and history[2] != history[3]: return 40
     
     return None
 
@@ -165,44 +662,38 @@ def analyze_patterns():
     pattern_id = detect_pattern(history)
     
     if pattern_id:
-        pattern = PATTERNS[pattern_id]
-        st.session_state.current_pattern = pattern_id
-        
-        layer = st.session_state.current_layer
-        
-        if layer <= 3:
-            manipulation_key = "1-3"
-        elif layer <= 6:
-            manipulation_key = "4-6"
-        else:
-            manipulation_key = "7-9"
+        pattern = PATTERNS.get(pattern_id)
+        if pattern:
+            st.session_state.current_pattern = pattern_id
             
-        manipulation_advice = pattern["manipulation_bet"].get(manipulation_key, "")
-        
-        st.session_state.analysis = {
-            'pattern': pattern["name"],
-            'confidence': 75,
-            'description': pattern["description"],
-            'formation': pattern["formation"]
-        }
-        
-        bet = 'Aguarde'
-        if pattern_id == 1:
-            bet = 'casa'
-        elif pattern_id == 2:
-            bet = 'visitante'
-        elif pattern_id == 3:
-            bet = 'visitante' if history[0] == 'casa' else 'casa'
-        elif pattern_id == 4:
-            bet = history[0] if history[0] != 'empate' else history[2]
-        elif pattern_id == 5:
-            bet = 'visitante' if history[0] == 'casa' else 'casa'
-        
-        st.session_state.suggestion = {
-            'bet': bet,
-            'reason': f"{pattern['name']}. {manipulation_advice}",
-            'confidence': 'alta' if layer <= 3 else 'média' if layer <= 6 else 'baixa'
-        }
+            layer = st.session_state.current_layer
+            
+            if layer <= 3:
+                manipulation_key = "1-3"
+            elif layer <= 6:
+                manipulation_key = "4-6"
+            else:
+                manipulation_key = "7-9"
+                
+            manipulation_advice = pattern["manipulation_bet"].get(manipulation_key, "")
+            
+            st.session_state.analysis = {
+                'pattern': pattern["name"],
+                'confidence': 75,
+                'description': pattern["description"],
+                'formation': pattern["formation"]
+            }
+            
+            bet = get_bet_suggestion(pattern_id, history)
+            
+            st.session_state.suggestion = {
+                'bet': bet,
+                'reason': f"{pattern['name']}. {manipulation_advice}",
+                'confidence': 'alta' if layer <= 3 else 'média' if layer <= 6 else 'baixa'
+            }
+        else:
+            st.session_state.analysis = {'pattern': 'Padrão não encontrado', 'confidence': 0, 'description': 'Padrão detectado, mas não definido no dicionário', 'formation': 'N/A'}
+            st.session_state.suggestion = {'bet': 'Aguarde', 'reason': 'Erro na definição do padrão', 'confidence': 'baixa'}
     else:
         st.session_state.analysis = {
             'pattern': 'Padrão Aleatório',
@@ -506,8 +997,8 @@ if st.session_state.history:
     """, unsafe_allow_html=True)
 
 # Seção de Padrões (apenas para referência)
-with st.expander("📚 Referência de Padrões (1-10)"):
-    for i in range(1, 11):
+with st.expander("📚 Referência de Padrões (1-40)"):
+    for i in range(1, 41): 
         if i in PATTERNS:
             pattern = PATTERNS[i]
             st.markdown(f"""
