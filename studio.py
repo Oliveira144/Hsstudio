@@ -38,7 +38,7 @@ PATTERNS = {
         "normal_bet": "Apostar vermelho na próxima rodada",
         "manipulation_bet": {
             "1-3": "Seguir vermelho",
-            "4-6": "Ficar atento à quebra",
+            "4-6": "Ficar atento à quebra; Camada 4–5, ficar atento à quebra; Camada 6–9, esperar confirmação antes de apostar",
             "7-9": "Esperar confirmação antes de apostar"
         }
     },
@@ -49,7 +49,7 @@ PATTERNS = {
         "normal_bet": "Apostar azul",
         "manipulation_bet": {
             "1-3": "Seguir azul",
-            "4-6": "Ficar atento à quebra",
+            "4-6": "Ficar atento à quebra; Mesma lógica do padrão 1",
             "7-9": "Esperar confirmação antes de apostar"
         }
     },
@@ -59,9 +59,9 @@ PATTERNS = {
         "formation": "🔴 🔵 🔴 🔵",
         "normal_bet": "Apostar na sequência da alternância",
         "manipulation_bet": {
-            "1-3": "Seguir alternância",
-            "4-6": "Cuidado com empates",
-            "7-9": "Apostar só quando padrão completo aparecer duas vezes"
+            "1-3": "Seguir alternância; Camada 1–3, seguir alternância",
+            "4-6": "Cuidado com empates; Camada 4–5, cuidado com empates",
+            "7-9": "Apostar só quando padrão completo aparecer duas vezes; Camada 6–9, apostar só quando padrão completo aparecer duas vezes"
         }
     },
     4: {
@@ -70,9 +70,9 @@ PATTERNS = {
         "formation": "🔴 🟡 🔵",
         "normal_bet": "Ignorar o empate, apostar na cor que rompe o padrão",
         "manipulation_bet": {
-            "1-3": "Padrão simples",
-            "4-6": "Apostar na cor que veio antes do empate",
-            "7-9": "Aguardar confirmação da cor dominante após empate"
+            "1-3": "Padrão simples; Camadas 1–3, padrão simples",
+            "4-6": "Apostar na cor que veio antes do empate; 4–6, apostar na cor que veio antes do empate",
+            "7-9": "Aguardar confirmação da cor dominante após empate; 7–9, aguardar confirmação da cor dominante após empate"
         }
     },
     5: {
@@ -81,9 +81,9 @@ PATTERNS = {
         "formation": "🔴 🔴 🔵 🔵",
         "normal_bet": "Apostar na próxima cor seguindo a alternância",
         "manipulation_bet": {
-            "1-3": "Padrão previsível",
-            "4-6": "Apostar após confirmar dois ciclos",
-            "7-9": "Só apostar se ciclo completo se repetir"
+            "1-3": "Padrão previsível; Camada 1–3, padrão previsível",
+            "4-6": "Apostar após confirmar dois ciclos; Camada 4–6, apostar após confirmar dois ciclos",
+            "7-9": "Só apostar se ciclo completo se repetir; Camada 7–9, só apostar se ciclo completo se repetir"
         }
     },
     6: {
@@ -92,9 +92,9 @@ PATTERNS = {
         "formation": "🔴 🔵 🔴 🔵 🔴",
         "normal_bet": "Apostar na próxima cor seguindo o ciclo",
         "manipulation_bet": {
-            "1-3": "Apostar conforme padrão",
-            "4-6": "Confirmar inversão antes de apostar",
-            "7-9": "Aguardar padrão duplo para segurança"
+            "1-3": "Apostar conforme padrão; Camadas 1–3, apostar conforme padrão",
+            "4-6": "Confirmar inversão antes de apostar; 4–6, confirmar inversão antes de apostar",
+            "7-9": "Aguardar padrão duplo para segurança; 7–9, aguardar padrão duplo para segurança"
         }
     },
     7: {
@@ -103,9 +103,9 @@ PATTERNS = {
         "formation": "🔴 🔵 🟡 🔴",
         "normal_bet": "Apostar na cor que veio antes do empate",
         "manipulation_bet": {
-            "1-3": "Seguir tendência simples",
-            "4-6": "Esperar ver se a cor dominante retorna",
-            "7-9": "Só apostar após padrão se repetir"
+            "1-3": "Seguir tendência simples; Camada 1–3, seguir tendência simples",
+            "4-6": "Esperar ver se a cor dominante retorna; 4–6, esperar ver se a cor dominante retorna",
+            "7-9": "Só apostar após padrão se repetir; 7–9, só apostar após padrão se repetir"
         }
     },
     8: {
@@ -114,9 +114,9 @@ PATTERNS = {
         "formation": "🔴 🔵 🔵 🔴 🔵",
         "normal_bet": "Apostar seguindo zig-zag",
         "manipulation_bet": {
-            "1-3": "Aposta direta",
-            "4-6": "Aguardar confirmação de duas sequências",
-            "7-9": "Só apostar se ciclo longo se repetir"
+            "1-3": "Aposta direta; Camadas 1–3, aposta direta",
+            "4-6": "Aguardar confirmação de duas sequências; 4–6, aguardar confirmação de duas sequências",
+            "7-9": "Só apostar se ciclo longo se repetir; 7–9, só apostar se ciclo longo se repetir"
         }
     },
     9: {
@@ -125,9 +125,9 @@ PATTERNS = {
         "formation": "🔴 🔴 🔵",
         "normal_bet": "Apostar na cor que rompeu a repetição",
         "manipulation_bet": {
-            "1-3": "Apostar na cor nova",
-            "4-6": "Esperar nova confirmação",
-            "7-9": "Aguardar dois ciclos da cor nova"
+            "1-3": "Apostar na cor nova; Camada 1–3, apostar na cor nova",
+            "4-6": "Esperar nova confirmação; 4–6, esperar nova confirmação",
+            "7-9": "Aguardar dois ciclos da cor nova; 7–9, aguardar dois ciclos da cor nova"
         }
     },
     10: {
@@ -136,9 +136,9 @@ PATTERNS = {
         "formation": "🔴 🔵 🔵 🔴 🔴 🔵",
         "normal_bet": "Apostar na cor que rompeu sequência dupla",
         "manipulation_bet": {
-            "1-3": "Seguir sequência",
-            "4-6": "Confirmar ciclo",
-            "7-9": "Esperar padrão completo antes de apostar"
+            "1-3": "Seguir sequência; Camada 1–3, seguir sequência",
+            "4-6": "Confirmar ciclo; 4–6, confirmar ciclo",
+            "7-9": "Esperar padrão completo antes de apostar; 7–9, esperar padrão completo antes de apostar"
         }
     },
     11: {
@@ -147,9 +147,9 @@ PATTERNS = {
         "formation": "🟡 🟡 🔴",
         "normal_bet": "Apostar na cor que vem após os empates",
         "manipulation_bet": {
-            "1-3": "Apostar imediatamente na cor que rompeu",
-            "4-6": "Esperar padrão se repetir",
-            "7-9": "Aguardar confirmação de dois ciclos"
+            "1-3": "Apostar imediatamente na cor que rompeu; Camadas 1–3, apostar imediatamente na cor que rompeu",
+            "4-6": "Esperar padrão se repetir; 4–6, esperar padrão se repetir",
+            "7-9": "Aguardar confirmação de dois ciclos; 7–9, aguardar confirmação de dois ciclos"
         }
     },
     12: {
@@ -158,9 +158,9 @@ PATTERNS = {
         "formation": "🔵 🔴 🔵 🔴 🔵 🔴",
         "normal_bet": "Apostar seguindo alternância",
         "manipulation_bet": {
-            "1-3": "Apostar na sequência",
-            "4-6": "Esperar inversão se confirmar",
-            "7-9": "Só apostar após padrão completo se repetir"
+            "1-3": "Apostar na sequência; Camadas 1–3, apostar na sequência",
+            "4-6": "Esperar inversão se confirmar; 4–6, esperar inversão se confirmar",
+            "7-9": "Só apostar após padrão completo se repetir; 7–9, só apostar após padrão completo se repetir"
         }
     },
     13: {
@@ -169,9 +169,9 @@ PATTERNS = {
         "formation": "🔴 🔴 🔵 🔵 🔴 🔴 🔵",
         "normal_bet": "Apostar seguindo próximo par",
         "manipulation_bet": {
-            "1-3": "Seguir o próximo par",
-            "4-6": "Confirmar ciclo",
-            "7-9": "Só apostar se ciclo duplo se repetir"
+            "1-3": "Seguir o próximo par; Camadas 1–3, seguir o próximo par",
+            "4-6": "Confirmar ciclo; 4–6, confirmar ciclo",
+            "7-9": "Só apostar se ciclo duplo se repetir; 7–9, só apostar se ciclo duplo se repetir"
         }
     },
     14: {
@@ -180,9 +180,9 @@ PATTERNS = {
         "formation": "🔵 🔴 🔵 🔴 🔵 🔴 🔴",
         "normal_bet": "Apostar na cor que rompe a repetição",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Esperar confirmação",
-            "7-9": "Aguardar dois ciclos completos"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Esperar confirmação; 4–6, esperar confirmação",
+            "7-9": "Aguardar dois ciclos completos; 7–9, aguardar dois ciclos completos"
         }
     },
     15: {
@@ -191,9 +191,9 @@ PATTERNS = {
         "formation": "🔴 🟡 🔵 🟡 🔴",
         "normal_bet": "Apostar na cor anterior ao empate",
         "manipulation_bet": {
-            "1-3": "Seguir cor anterior",
-            "4-6": "Esperar padrão se repetir",
-            "7-9": "Apostar somente após confirmação de ciclo"
+            "1-3": "Seguir cor anterior; Camadas 1–3, seguir cor anterior",
+            "4-6": "Esperar padrão se repetir; 4–6, esperar padrão se repetir",
+            "7-9": "Apostar somente após confirmação de ciclo; 7–9, apostar somente após confirmação de ciclo"
         }
     },
     16: {
@@ -202,9 +202,9 @@ PATTERNS = {
         "formation": "🔴 🔵 🔵 🔴 🔵 🔵",
         "normal_bet": "Apostar na cor que completa o ciclo",
         "manipulation_bet": {
-            "1-3": "Apostar conforme ciclo",
-            "4-6": "Esperar repetição dupla",
-            "7-9": "Só apostar após dois ciclos completos"
+            "1-3": "Apostar conforme ciclo; Camadas 1–3, apostar conforme ciclo",
+            "4-6": "Esperar repetição dupla; 4–6, esperar repetição dupla",
+            "7-9": "Só apostar após dois ciclos completos; 7–9, só apostar após dois ciclos completos"
         }
     },
     17: {
@@ -213,9 +213,9 @@ PATTERNS = {
         "formation": "🔴 🔵 🔴 🔵 🔵 🔴 🔵",
         "normal_bet": "Apostar na cor dominante",
         "manipulation_bet": {
-            "1-3": "Seguir dominância",
-            "4-6": "Aguardar confirmação",
-            "7-9": "Esperar padrão se repetir duas vezes"
+            "1-3": "Seguir dominância; Camadas 1–3, seguir dominância",
+            "4-6": "Aguardar confirmação; 4–6, aguardar confirmação",
+            "7-9": "Esperar padrão se repetir duas vezes; 7–9, esperar padrão se repetir duas vezes"
         }
     },
     18: {
@@ -224,9 +224,9 @@ PATTERNS = {
         "formation": "🔵 🟡 🔴",
         "normal_bet": "Apostar na cor que rompe o empate",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Esperar confirmação",
-            "7-9": "Só apostar após dois ciclos completos"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Esperar confirmação; 4–6, esperar confirmação",
+            "7-9": "Só apostar após dois ciclos completos; 7–9, só apostar após dois ciclos completos"
         }
     },
     19: {
@@ -235,9 +235,9 @@ PATTERNS = {
         "formation": "🔴 🔴 🔴 🔵 🔵",
         "normal_bet": "Apostar na cor da sequência dupla",
         "manipulation_bet": {
-            "1-3": "Seguir a dupla",
-            "4-6": "Confirmar ciclo",
-            "7-9": "Esperar repetição do padrão completo"
+            "1-3": "Seguir a dupla; Camadas 1–3, seguir a dupla",
+            "4-6": "Confirmar ciclo; 4–6, confirmar ciclo",
+            "7-9": "Esperar repetição do padrão completo; 7–9, esperar repetição do padrão completo"
         }
     },
     20: {
@@ -246,9 +246,9 @@ PATTERNS = {
         "formation": "🔴 🔵 🔵 🔴 🔵 🔵",
         "normal_bet": "Apostar seguindo o ciclo da segunda dupla",
         "manipulation_bet": {
-            "1-3": "Apostar diretamente",
-            "4-6": "Aguardar confirmação da segunda dupla",
-            "7-9": "Só apostar após padrão duplo"
+            "1-3": "Apostar diretamente; Camadas 1–3, apostar diretamente",
+            "4-6": "Aguardar confirmação da segunda dupla; 4–6, aguardar confirmação da segunda dupla",
+            "7-9": "Só apostar após padrão duplo; 7–9, só apostar após padrão duplo"
         }
     },
     21: {
@@ -257,9 +257,9 @@ PATTERNS = {
         "formation": "🔴 🔴 🔴 🔵 🔵 🔴",
         "normal_bet": "Apostar seguindo a alternância",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Confirmar ciclo",
-            "7-9": "Esperar repetição"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Confirmar ciclo; 4–6, confirmar ciclo",
+            "7-9": "Esperar repetição; 7–9, esperar repetição"
         }
     },
     22: {
@@ -268,9 +268,9 @@ PATTERNS = {
         "formation": "🔵 🔵 🔴 🔴 🔵",
         "normal_bet": "Apostar na cor que fecha a inversão",
         "manipulation_bet": {
-            "1-3": "Apostar diretamente",
-            "4-6": "Aguardar confirmação",
-            "7-9": "Só após repetição"
+            "1-3": "Apostar diretamente; Camadas 1–3, apostar diretamente",
+            "4-6": "Aguardar confirmação; 4–6, aguardar confirmação",
+            "7-9": "Só após repetição; 7–9, só após repetição"
         }
     },
     23: {
@@ -279,9 +279,9 @@ PATTERNS = {
         "formation": "🔴 🔴 🟡 🔵 🔵",
         "normal_bet": "Apostar na cor que segue após empate",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Esperar confirmação",
-            "7-9": "Esperar dois ciclos completos"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Esperar confirmação; 4–6, esperar confirmação",
+            "7-9": "Esperar dois ciclos completos; 7–9, esperar dois ciclos completos"
         }
     },
     24: {
@@ -290,9 +290,9 @@ PATTERNS = {
         "formation": "🔴 🔵 🔴 🔵 🔴 🔵 🔴",
         "normal_bet": "Apostar seguindo zig-zag",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Aguardar repetição parcial",
-            "7-9": "Só apostar após ciclo completo"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Aguardar repetição parcial; 4–6, aguardar repetição parcial",
+            "7-9": "Só apostar após ciclo completo; 7–9, só apostar após ciclo completo"
         }
     },
     25: {
@@ -301,9 +301,9 @@ PATTERNS = {
         "formation": "🔵 🔵 🔴 🔴 🔴",
         "normal_bet": "Apostar na cor que interrompe a repetição longa",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Esperar confirmação",
-            "7-9": "Aguardar repetição do padrão"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Esperar confirmação; 4–6, esperar confirmação",
+            "7-9": "Aguardar repetição do padrão; 7–9, aguardar repetição do padrão"
         }
     },
     26: {
@@ -312,9 +312,9 @@ PATTERNS = {
         "formation": "🔴 🔵 🔵 🟡 🔴 🔵",
         "normal_bet": "Apostar na cor dominante antes do empate",
         "manipulation_bet": {
-            "1-3": "Seguir direto",
-            "4-6": "Aguardar confirmação",
-            "7-9": "Só apostar após ciclo completo"
+            "1-3": "Seguir direto; Camadas 1–3, seguir direto",
+            "4-6": "Aguardar confirmação; 4–6, aguardar confirmação",
+            "7-9": "Só apostar após ciclo completo; 7–9, só apostar após ciclo completo"
         }
     },
     27: {
@@ -323,9 +323,9 @@ PATTERNS = {
         "formation": "🔴 🔴 🔴 🔴 🔵",
         "normal_bet": "Apostar na nova cor",
         "manipulation_bet": {
-            "1-3": "Apostar na cor que rompe",
-            "4-6": "Confirmar padrão",
-            "7-9": "Esperar repetição do padrão"
+            "1-3": "Apostar na cor que rompe; Camadas 1–3, apostar na cor que rompe",
+            "4-6": "Confirmar padrão; 4–6, confirmar padrão",
+            "7-9": "Esperar repetição do padrão; 7–9, esperar repetição do padrão"
         }
     },
     28: {
@@ -334,9 +334,9 @@ PATTERNS = {
         "formation": "🔴 🔴 🟡 🔵 🔵",
         "normal_bet": "Apostar na cor que rompe a dupla",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Confirmar padrão",
-            "7-9": "Esperar ciclo duplo"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Confirmar padrão; 4–6, confirmar padrão",
+            "7-9": "Esperar ciclo duplo; 7–9, esperar ciclo duplo"
         }
     },
     29: {
@@ -345,9 +345,9 @@ PATTERNS = {
         "formation": "🟡 🔵 🔵 🔵",
         "normal_bet": "Apostar na cor dominante",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Esperar confirmação",
-            "7-9": "Aguardar dois ciclos"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Esperar confirmação; 4–6, esperar confirmação",
+            "7-9": "Aguardar dois ciclos; 7–9, aguardar dois ciclos"
         }
     },
     30: {
@@ -356,9 +356,9 @@ PATTERNS = {
         "formation": "🔴 🔵 🔵 🔴 🔴 🔵 🔴",
         "normal_bet": "Apostar na cor dominante",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Confirmar ciclo",
-            "7-9": "Aguardar repetição do padrão"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Confirmar ciclo; 4–6, confirmar ciclo",
+            "7-9": "Aguardar repetição do padrão; 7–9, aguardar repetição do padrão"
         }
     },
     31: {
@@ -367,9 +367,9 @@ PATTERNS = {
         "formation": "🔵 🔵 🔴 🔴 🔵",
         "normal_bet": "Apostar na cor que completa a sequência de 5",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Esperar confirmação da última cor",
-            "7-9": "Só apostar após repetição do ciclo completo"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Esperar confirmação da última cor; 4–6, esperar confirmação da última cor",
+            "7-9": "Só apostar após repetição do ciclo completo; 7–9, só apostar após repetição do ciclo completo"
         }
     },
     32: {
@@ -378,9 +378,9 @@ PATTERNS = {
         "formation": "🔴 🔵 🔴 🔵 🔴 🔵 🔴",
         "normal_bet": "Apostar na cor que mantém a alternância",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Confirmar padrão antes de apostar",
-            "7-9": "Aguardar repetição completa do ciclo"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Confirmar padrão antes de apostar; 4–6, confirmar padrão antes de apostar",
+            "7-9": "Aguardar repetição completa do ciclo; 7–9, aguardar repetição completa do ciclo"
         }
     },
     33: {
@@ -389,9 +389,9 @@ PATTERNS = {
         "formation": "🔵 🔵 🟡 🔴 🔴",
         "normal_bet": "Apostar na cor que retoma o ciclo",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Aguardar confirmação da retomada",
-            "7-9": "Só apostar após dois ciclos completos"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Aguardar confirmação da retomada; 4–6, aguardar confirmação da retomada",
+            "7-9": "Só apostar após dois ciclos completos; 7–9, só apostar após dois ciclos completos"
         }
     },
     34: {
@@ -400,9 +400,9 @@ PATTERNS = {
         "formation": "🟡 🔴 🔵 🔴 🔵",
         "normal_bet": "Apostar na cor dominante antes do empate",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Confirmar sequência",
-            "7-9": "Esperar ciclo duplo para segurança"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Confirmar sequência; 4–6, confirmar sequência",
+            "7-9": "Esperar ciclo duplo para segurança; 7–9, esperar ciclo duplo para segurança"
         }
     },
     35: {
@@ -411,9 +411,9 @@ PATTERNS = {
         "formation": "🔴 🔵 🔵 🔴 🔵 🔵 🔴 🔵",
         "normal_bet": "Apostar seguindo o próximo par do ciclo",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Esperar confirmação parcial",
-            "7-9": "Só apostar após ciclo completo"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Esperar confirmação parcial; 4–6, esperar confirmação parcial",
+            "7-9": "Só apostar após ciclo completo; 7–9, só apostar após ciclo completo"
         }
     },
     36: {
@@ -422,9 +422,9 @@ PATTERNS = {
         "formation": "🔵 🔵 🔴 🔵 🔴 🔵",
         "normal_bet": "Apostar na cor que completa a alternância tripla",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Esperar confirmação do ciclo",
-            "7-9": "Aguardar repetição do padrão completo"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Esperar confirmação do ciclo; 4–6, esperar confirmação do ciclo",
+            "7-9": "Aguardar repetição do padrão completo; 7–9, aguardar repetição do padrão completo"
         }
     },
     37: {
@@ -433,9 +433,9 @@ PATTERNS = {
         "formation": "🔴 🔴 🔵 🔴 🔵",
         "normal_bet": "Apostar na cor que completa a inversão",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Confirmar padrão antes de apostar",
-            "7-9": "Esperar repetição do ciclo completo"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Confirmar padrão antes de apostar; 4–6, confirmar padrão antes de apostar",
+            "7-9": "Esperar repetição do ciclo completo; 7–9, esperar repetição do ciclo completo"
         }
     },
     38: {
@@ -444,9 +444,9 @@ PATTERNS = {
         "formation": "🔴 🔵 🟡 🔵 🔴",
         "normal_bet": "Apostar na cor que domina após empate",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Confirmar sequência",
-            "7-9": "Só apostar após ciclo completo"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Confirmar sequência; 4–6, confirmar sequência",
+            "7-9": "Só apostar após ciclo completo; 7–9, só apostar após ciclo completo"
         }
     },
     39: {
@@ -455,9 +455,9 @@ PATTERNS = {
         "formation": "🔴 🔴 🔵 🔵 🔴",
         "normal_bet": "Apostar na cor que fecha a inversão",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Aguardar confirmação",
-            "7-9": "Só apostar após repetição do padrão"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Aguardar confirmação; 4–6, aguardar confirmação",
+            "7-9": "Só apostar após repetição do padrão; 7–9, só apostar após repetição do padrão"
         }
     },
     40: {
@@ -466,9 +466,9 @@ PATTERNS = {
         "formation": "🔵 🔵 🔵 🔴 🔵",
         "normal_bet": "Apostar na cor que rompe a sequência longa",
         "manipulation_bet": {
-            "1-3": "Apostar direto",
-            "4-6": "Confirmar padrão",
-            "7-9": "Esperar repetição do padrão completo"
+            "1-3": "Apostar direto; Camadas 1–3, apostar direto",
+            "4-6": "Confirmar padrão; 4–6, confirmar padrão",
+            "7-9": "Esperar repetição do padrão completo; 7–9, esperar repetição do padrão completo"
         }
     }
 }
@@ -476,6 +476,7 @@ PATTERNS = {
 # Funções auxiliares
 def add_result(result):
     st.session_state.history.insert(0, result)
+    st.session_state.manipulation_alerts = [] # Limpa os alertas a cada nova rodada
     update_stats()
     determine_layer()
     analyze_patterns()
@@ -483,6 +484,7 @@ def add_result(result):
 def undo_last():
     if st.session_state.history:
         st.session_state.history.pop(0)
+        st.session_state.manipulation_alerts = []
         update_stats()
         determine_layer()
         analyze_patterns()
@@ -599,9 +601,6 @@ def detect_pattern(history):
     history_tuple = tuple(history)
     
     # Lógica de detecção para os 40 padrões
-    # Note: Adaptei a lógica com base nas formações e descrições fornecidas.
-    # Algumas lógicas podem precisar de ajuste fino.
-    
     if len(history) >= 3 and history[0] == 'casa' and history[1] == 'casa' and history[2] == 'casa': return 1
     if len(history) >= 3 and history[0] == 'visitante' and history[1] == 'visitante' and history[2] == 'visitante': return 2
     if len(history) >= 4 and history[0] != history[1] and history[1] != history[2] and history[2] != history[3] and history[0] != history[2]: return 3
@@ -636,8 +635,7 @@ def detect_pattern(history):
         sub_history = history[:5]
         is_alternating = sub_history[0] != sub_history[1] and sub_history[1] != sub_history[2] and sub_history[2] != sub_history[3] and sub_history[3] != sub_history[4]
         is_repeating = sub_history[0] == sub_history[1] and sub_history[2] == sub_history[3] and sub_history[3] != sub_history[4]
-        if is_alternating or is_repeating:
-            return 31
+        if is_alternating or is_repeating: return 31
     if len(history) >= 7 and history[0] != history[1] and history[1] == history[2] and history[2] != history[3] and history[3] == history[4] and history[4] != history[5] and history[5] == history[6]: return 32
     if len(history) >= 5 and history[0] == history[1] and history[2] == 'empate' and history[3] == history[4] and history[0] != history[3]: return 33
     if len(history) >= 5 and history[0] == 'empate' and history[1] != history[2] and history[2] != history[3] and history[3] != history[4]: return 34
@@ -650,14 +648,43 @@ def detect_pattern(history):
     
     return None
 
+def calculate_pattern_confidence(pattern_id, history_len):
+    base_confidence = 0
+    
+    # Ponderação de confiança baseada na complexidade/raridade do padrão
+    if pattern_id in [1, 2, 3, 9, 11, 18, 29]: # Padrões mais simples/comuns
+        base_confidence = 60
+    elif pattern_id in [4, 5, 8, 10, 15, 19, 23, 27, 28, 30, 31, 33, 34, 37, 39, 40]: # Padrões de complexidade média
+        base_confidence = 75
+    elif pattern_id in [6, 7, 12, 13, 14, 16, 17, 20, 21, 22, 24, 25, 26, 32, 35, 36, 38]: # Padrões mais longos/raros
+        base_confidence = 90
+    
+    # Reduz a confiança com base na camada de manipulação
+    layer = st.session_state.current_layer
+    if layer >= 7:
+        base_confidence *= 0.7  # Reduz 30%
+    elif layer >= 4:
+        base_confidence *= 0.85 # Reduz 15%
+        
+    return int(base_confidence)
+
 def analyze_patterns():
     history = st.session_state.history
+    
+    st.session_state.manipulation_alerts = [] # Reseta os alertas
+    
     if len(history) < 3:
         st.session_state.analysis = {'pattern': 'Dados insuficientes', 'confidence': 0, 'description': 'Aguarde mais resultados', 'formation': 'N/A'}
         st.session_state.suggestion = {'bet': 'Aguarde', 'reason': 'Aguarde mais resultados para análise', 'confidence': 'baixa'}
-        st.session_state.manipulation_alerts = []
         st.session_state.current_pattern = None
         return
+    
+    # Adiciona alertas de quebra de padrão em camadas de manipulação
+    if st.session_state.current_layer >= 7:
+        if len(history) >= 5 and history[0] == history[1] == history[2] == history[3] and history[4] != history[3]:
+            st.session_state.manipulation_alerts.append("Alerta: Quebra de repetição longa! Possível alteração de tendência.")
+        if len(history) >= 4 and history[0] != history[1] and history[1] == 'empate':
+             st.session_state.manipulation_alerts.append("Alerta: Empate inesperado! Fique atento a uma possível quebra de ciclo.")
     
     pattern_id = detect_pattern(history)
     
@@ -677,9 +704,11 @@ def analyze_patterns():
                 
             manipulation_advice = pattern["manipulation_bet"].get(manipulation_key, "")
             
+            confidence = calculate_pattern_confidence(pattern_id, len(history))
+            
             st.session_state.analysis = {
                 'pattern': pattern["name"],
-                'confidence': 75,
+                'confidence': confidence,
                 'description': pattern["description"],
                 'formation': pattern["formation"]
             }
@@ -695,25 +724,46 @@ def analyze_patterns():
             st.session_state.analysis = {'pattern': 'Padrão não encontrado', 'confidence': 0, 'description': 'Padrão detectado, mas não definido no dicionário', 'formation': 'N/A'}
             st.session_state.suggestion = {'bet': 'Aguarde', 'reason': 'Erro na definição do padrão', 'confidence': 'baixa'}
     else:
-        st.session_state.analysis = {
-            'pattern': 'Padrão Aleatório',
-            'confidence': 40,
-            'description': 'Nenhum padrão claro detectado',
-            'formation': 'N/A'
-        }
+        # Lógica de análise estatística quando nenhum padrão é detectado
+        recent_history = st.session_state.history[:20]
+        stats = {'casa': 0, 'visitante': 0, 'empate': 0}
+        for result in recent_history:
+            stats[result] += 1
         
-        if st.session_state.stats['casa'] > st.session_state.stats['visitante']:
-            bet_suggestion = 'visitante'
-        elif st.session_state.stats['visitante'] > st.session_state.stats['casa']:
-            bet_suggestion = 'casa'
+        total = len(recent_history)
+        if total > 0:
+            probabilities = {
+                'casa': (stats['casa'] / total),
+                'visitante': (stats['visitante'] / total),
+                'empate': (stats['empate'] / total),
+            }
+            dominant_color = max(probabilities, key=probabilities.get)
+            confidence = int(probabilities[dominant_color] * 100)
+            
+            st.session_state.analysis = {
+                'pattern': 'Análise Estatística',
+                'confidence': confidence,
+                'description': f'Nenhum padrão, mas {dominant_color.upper()} está dominante nos últimos resultados.',
+                'formation': 'Tendência'
+            }
+            
+            st.session_state.suggestion = {
+                'bet': dominant_color,
+                'reason': 'Estatísticas recentes sugerem esta tendência.',
+                'confidence': 'baixa'
+            }
         else:
-            bet_suggestion = 'empate'
-        
-        st.session_state.suggestion = {
-            'bet': bet_suggestion,
-            'reason': 'Estatísticas sugerem equilíbrio',
-            'confidence': 'baixa'
-        }
+            st.session_state.analysis = {
+                'pattern': 'Padrão Aleatório',
+                'confidence': 40,
+                'description': 'Nenhum padrão claro detectado',
+                'formation': 'N/A'
+            }
+            st.session_state.suggestion = {
+                'bet': 'Aguarde',
+                'reason': 'Aguarde mais resultados para análise',
+                'confidence': 'baixa'
+            }
         st.session_state.current_pattern = None
 
 # Estilos CSS personalizados
@@ -854,7 +904,7 @@ st.markdown(f"""
 # Alertas de manipulação
 if st.session_state.manipulation_alerts:
     for alert in st.session_state.manipulation_alerts:
-        st.error(alert)
+        st.warning(alert)
 
 # Análise e sugestão
 if st.session_state.analysis and st.session_state.suggestion:
@@ -978,7 +1028,6 @@ if st.session_state.history:
         <div style="display: flex; flex-wrap: wrap; gap: 0.25rem;">
     """, unsafe_allow_html=True)
     
-    # Construa a string HTML completa antes de renderizar
     history_html = ""
     for result in st.session_state.history:
         if result == 'casa':
@@ -988,7 +1037,6 @@ if st.session_state.history:
         else:
             history_html += '<span class="result-badge empate-badge">E</span>'
     
-    # Renderize a string HTML completa de uma só vez
     st.markdown(history_html, unsafe_allow_html=True)
     
     st.markdown("""
