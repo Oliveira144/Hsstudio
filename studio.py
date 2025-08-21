@@ -120,7 +120,7 @@ def update_stats():
 
 def determine_layer():
     history_len = len(st.session_state.history)
-    if history_len < 15:  # Ajuste nos limites para refletir as camadas
+    if history_len < 15:
         st.session_state.current_layer = 1
     elif history_len < 30:
         st.session_state.current_layer = 4
@@ -131,26 +131,33 @@ def detect_pattern(history):
     if len(history) < 3:
         return None
     
-    # Verifica padrão 1: Repetição Simples Vermelha
-    if history[0] == 'casa' and history[1] == 'casa' and history[2] == 'casa':
+    # Verifica padrão 1: Repetição Simples Vermelha (ajustado para ser mais robusto)
+    if len(history) >= 3 and history[0] == 'casa' and history[1] == 'casa' and history[2] == 'casa':
         return 1
     
     # Verifica padrão 2: Repetição Simples Azul
-    if history[0] == 'visitante' and history[1] == 'visitante' and history[2] == 'visitante':
+    if len(history) >= 3 and history[0] == 'visitante' and history[1] == 'visitante' and history[2] == 'visitante':
         return 2
     
-    # Verifica padrão 3: Alternância Simples
-    if len(history) >= 4:
-        if history[0] != history[1] and history[1] != history[2] and history[2] != history[3]:
-            return 3
+    # Verifica padrão 3: Alternância Simples (ajustado para ser mais robusto)
+    if len(history) >= 4 and history[0] != history[1] and history[1] != history[2] and history[2] != history[3] and history[0] != history[2]:
+        return 3
+    
+    # Verifica padrão 4: Empate como âncora
+    if len(history) >= 3 and history[1] == 'empate' and history[0] != 'empate' and history[2] != 'empate' and history[0] != history[2]:
+        return 4
+    
+    # Verifica padrão 5: Repetição + Alternância
+    if len(history) >= 4 and history[0] == history[1] and history[2] == history[3] and history[0] != history[2]:
+        return 5
     
     return None
 
 def analyze_patterns():
     history = st.session_state.history
     if len(history) < 3:
-        st.session_state.analysis = {'pattern': 'Dados insuficientes', 'confidence': 0}
-        st.session_state.suggestion = {'bet': 'Aguarde', 'reason': 'Aguarde mais resultados', 'confidence': 'baixa'}
+        st.session_state.analysis = {'pattern': 'Dados insuficientes', 'confidence': 0, 'description': 'Aguarde mais resultados', 'formation': 'N/A'}
+        st.session_state.suggestion = {'bet': 'Aguarde', 'reason': 'Aguarde mais resultados para análise', 'confidence': 'baixa'}
         st.session_state.manipulation_alerts = []
         st.session_state.current_pattern = None
         return
@@ -163,7 +170,6 @@ def analyze_patterns():
         
         layer = st.session_state.current_layer
         
-        # Determinar a chave da camada para buscar o conselho de manipulação
         if layer <= 3:
             manipulation_key = "1-3"
         elif layer <= 6:
@@ -180,19 +186,21 @@ def analyze_patterns():
             'formation': pattern["formation"]
         }
         
-        # CORREÇÃO AQUI: Determinar aposta com base no padrão e na lógica de apostas
+        # Lógica corrigida para determinar a aposta com base no padrão
+        bet = 'Aguarde'
         if pattern_id == 1:
             bet = 'casa'
         elif pattern_id == 2:
             bet = 'visitante'
         elif pattern_id == 3:
-            # Alternância: a próxima deve ser oposta à última
             bet = 'visitante' if history[0] == 'casa' else 'casa'
-        else:
-            bet = 'casa'  # Padrão padrão
+        elif pattern_id == 4:
+            bet = history[0] if history[0] != 'empate' else history[2]
+        elif pattern_id == 5:
+            bet = 'visitante' if history[0] == 'casa' else 'casa'
         
         st.session_state.suggestion = {
-            'bet': bet, # Aposta baseada na lógica do padrão
+            'bet': bet,
             'reason': f"{pattern['name']}. {manipulation_advice}",
             'confidence': 'alta' if layer <= 3 else 'média' if layer <= 6 else 'baixa'
         }
@@ -200,22 +208,22 @@ def analyze_patterns():
         st.session_state.analysis = {
             'pattern': 'Padrão Aleatório',
             'confidence': 40,
-            'description': 'Nenhum padrão claro detectado'
+            'description': 'Nenhum padrão claro detectado',
+            'formation': 'N/A'
         }
         
-        # Sugestão baseada em estatísticas
         if st.session_state.stats['casa'] > st.session_state.stats['visitante']:
-            st.session_state.suggestion = {
-                'bet': 'visitante',
-                'reason': 'Estatísticas sugerem equilíbrio',
-                'confidence': 'baixa'
-            }
+            bet_suggestion = 'visitante'
+        elif st.session_state.stats['visitante'] > st.session_state.stats['casa']:
+            bet_suggestion = 'casa'
         else:
-            st.session_state.suggestion = {
-                'bet': 'casa',
-                'reason': 'Estatísticas sugerem equilíbrio',
-                'confidence': 'baixa'
-            }
+            bet_suggestion = 'empate'
+        
+        st.session_state.suggestion = {
+            'bet': bet_suggestion,
+            'reason': 'Estatísticas sugerem equilíbrio',
+            'confidence': 'baixa'
+        }
         st.session_state.current_pattern = None
 
 # Estilos CSS personalizados (sem alterações)
@@ -297,7 +305,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Layout principal do aplicativo (sem alterações)
+# Layout principal do aplicativo
 st.markdown('<div class="main">', unsafe_allow_html=True)
 
 # Cabeçalho
@@ -472,24 +480,27 @@ with st.container():
     </div>
     """, unsafe_allow_html=True)
 
-# Histórico de resultados
+# Histórico de resultados - SEÇÃO CORRIGIDA
 if st.session_state.history:
     st.markdown("""
     <div class="card">
         <h3 style="color: white; margin-bottom: 0.75rem;">📋 Histórico de Resultados</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.25rem;">
     """, unsafe_allow_html=True)
     
+    # Criar colunas para quebra de linha
+    cols = st.columns(10)
+    
     for i, result in enumerate(st.session_state.history):
-        if result == 'casa':
-            st.markdown('<span class="result-badge casa-badge">C</span>', unsafe_allow_html=True)
-        elif result == 'visitante':
-            st.markdown('<span class="result-badge visitante-badge">V</span>', unsafe_allow_html=True)
-        else:
-            st.markdown('<span class="result-badge empate-badge">E</span>', unsafe_allow_html=True)
+        col_index = i % 10
+        with cols[col_index]:
+            if result == 'casa':
+                st.markdown('<span class="result-badge casa-badge">C</span>', unsafe_allow_html=True)
+            elif result == 'visitante':
+                st.markdown('<span class="result-badge visitante-badge">V</span>', unsafe_allow_html=True)
+            else:
+                st.markdown('<span class="result-badge empate-badge">E</span>', unsafe_allow_html=True)
     
     st.markdown("""
-        </div>
     </div>
     """, unsafe_allow_html=True)
 
