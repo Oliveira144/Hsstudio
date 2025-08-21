@@ -69,7 +69,6 @@ PATTERNS = {
         }
     },
     # Padrões 4-40 seriam adicionados aqui seguindo a mesma estrutura
-    # Por questões de espaço, vou adicionar apenas alguns exemplos
     4: {
         "name": "Empate como âncora",
         "description": "Empate aparece entre duas cores",
@@ -92,7 +91,7 @@ PATTERNS = {
             "7-9": "Só apostar se ciclo completo se repetir"
         }
     },
-    # ... adicione os outros padrões seguindo a mesma estrutura
+    # Adicione os outros padrões seguindo a mesma estrutura
 }
 
 # Funções auxiliares
