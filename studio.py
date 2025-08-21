@@ -122,6 +122,7 @@ def analyze_patterns():
 def accept_terms():
     st.session_state.accepted_terms = True
     st.session_state.show_warning = False
+    st.rerun()
 
 # Estilos CSS personalizados
 st.markdown("""
@@ -133,6 +134,7 @@ st.markdown("""
     .stButton button {
         width: 100%;
         transition: all 0.3s ease;
+        border: none;
     }
     .stButton button:hover {
         transform: scale(1.05);
@@ -200,12 +202,30 @@ st.markdown("""
         max-width: 32rem;
         width: 90%;
         padding: 1.5rem;
+        margin: 1rem;
+    }
+    .accept-button {
+        background-color: #dc2626;
+        color: white;
+        font-weight: bold;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .accept-button:hover {
+        background-color: #b91c1c;
+        transform: scale(1.02);
     }
 </style>
 """, unsafe_allow_html=True)
 
 # Modal de aviso
 if st.session_state.show_warning:
+    # Usando HTML e CSS para o modal
     st.markdown("""
     <div class="warning-modal">
         <div class="warning-content">
@@ -220,15 +240,15 @@ if st.session_state.show_warning:
             </div>
             
             <div style="color: #374151; margin-bottom: 1.5rem;">
-                <p style="font-weight: bold; text-align: center;">
+                <p style="font-weight: bold; text-align: center; margin-bottom: 1rem;">
                     Este aplicativo é exclusivo e de uso restrito do grupo <span style="color: #dc2626;">HS-Studio</span>
                 </p>
                 
-                <p>
+                <p style="margin-bottom: 1rem;">
                     É terminantemente proibida a divulgação, compartilhamento ou disponibilização do link do app a terceiros sem autorização expressa do administrador.
                 </p>
                 
-                <p>
+                <p style="margin-bottom: 1rem;">
                     O descumprimento destas regras poderá resultar no <span style="font-weight: bold; color: #dc2626;">bloqueio imediato do acesso</span> e na <span style="font-weight: bold; color: #dc2626;">remoção definitiva do link</span>.
                 </p>
                 
@@ -236,15 +256,15 @@ if st.session_state.show_warning:
                     <h3 style="color: #92400e; font-weight: bold; margin-bottom: 0.5rem; display: flex; align-items: center;">
                         <span style="margin-right: 0.5rem;">⚠️</span> Observações Importantes:
                     </h3>
-                    <ul style="font-size: 0.875rem; color: #92400e; padding-left: 1.5rem;">
-                        <li>• O app é uma ferramenta de auxílio na tomada de decisão, não sendo garantia de ganhos de 100%.</li>
-                        <li>• O uso é restrito a maiores de 18 anos.</li>
-                        <li>• O jogo deve ser praticado de forma consciente e responsável.</li>
+                    <ul style="font-size: 0.875rem; color: #92400e; padding-left: 1.5rem; margin: 0;">
+                        <li>O app é uma ferramenta de auxílio na tomada de decisão, não sendo garantia de ganhos de 100%.</li>
+                        <li>O uso é restrito a maiores de 18 anos.</li>
+                        <li>O jogo deve ser praticado de forma consciente e responsável.</li>
                     </ul>
                 </div>
                 
                 <div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 0.5rem; padding: 0.75rem;">
-                    <p style="font-size: 0.875rem; color: #166534;">
+                    <p style="font-size: 0.875rem; color: #166534; margin: 0;">
                         <strong>Ao continuar</strong>, você declara estar ciente e de acordo com estas condições.
                     </p>
                 </div>
@@ -253,16 +273,15 @@ if st.session_state.show_warning:
     </div>
     """, unsafe_allow_html=True)
     
-    # Botão para aceitar os termos
+    # Botão para aceitar os termos - usando columns para centralizar
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         if st.button("Aceito os Termos - Continuar", key="accept_terms", use_container_width=True):
             accept_terms()
-            st.rerun()
     
     st.stop()
 
-# Layout principal do aplicativo
+# Layout principal do aplicativo (após aceitar os termos)
 st.markdown('<div class="main">', unsafe_allow_html=True)
 
 # Cabeçalho
